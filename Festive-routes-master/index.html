@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FESTIVE ROUTES</title>
+    <link rel="icon" href="image/l8 copy.png" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+            @media (min-width: 767px) and (max-width: 769px) {
+            .nav-list ul {
+                display: flex;
+                justify-content: space-between;
+                padding: 0%;
+                font-weight: bold;
+                margin-right: -500px;
+                margin-top: 43px;
+            }
+            .bt1 {
+                background-color: rgb(252, 42, 5);
+                color: #ffffff;
+                padding: 13px 16px;
+                text-align: center;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+            .hello {
+                position: absolute;
+                height: auto;
+                top: 25px;
+                left: 25px;
+                width: 320px;
+                padding: 2px;
+                mix-blend-mode: color-burn;
+            }
+            .slid {
+                display: flex;
+                justify-content: left;
+                height: 700px;
+                width: 700px;
+                position: absolute;
+                animation-name: photo;
+                animation-duration: 20s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+            }
+            #map {
+                height: 900px;
+                width: 1346px;
+                color: #007bff;
+                top: 110px;
+            }
+            footer {
+                background-size: cover;
+            }
+            .card-container {
+                position: absolute;
+                padding-left: 4%;
+                display: flex;
+                margin: 0 auto;
+                align-items: center;
+                overflow-y: visible;
+                scroll-behavior: smooth;
+                margin-top: 25%;
+            }
+        }
+        
+        @media (min-width: 319px) and (max-width: 426px) {
+            .hello {
+                position: absolute;
+                height: auto;
+                top: 25px;
+                left: 25px;
+                width: 1520px;
+                padding: 2px;
+                mix-blend-mode: color-burn;
+                box-shadow: 5px 5px 10px rgba(148, 48, 17, 0.808);
+                backdrop-filter: blur(20px);
+            }
+            nav {
+                position: fixed;
+                z-index: 1000;
+            }
+            .navbar {
+                /* padding: 15px 500px; */
+                width: 100%;
+                height: 80px;
+                position: absolute;
+                display: flex;
+                backdrop-filter: blur(20px);
+                margin-top: 0px;
+                justify-content: right;
+                z-index: 1;
+                top: 0px;
+            }
+            .nav-list ul {
+                position: absolute;
+                display: flex;
+                flex-direction: row;
+                margin-top: 4000px;
+                top: 500px;
+                margin-left: -200px;
+                <!-- justify-content: space-evenly;
+                -->padding: 390px 50px;
+                font-weight: bold;
+                <!-- margin-left: 200px;
+                margin-top: -75px;
+                left: 200px;
+                -->font-size: 30px;
+                z-index: 100000;
+            }
+            .dropbtn {
+                background-color: rgb(252, 42, 5);
+                border-radius: 50px;
+                color: white;
+                padding: 40px 110px;
+                margin-top: -1000px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                font-size: 42px;
+                font-weight: 800;
+            }
+            .bt1 {
+                background-color: rgb(252, 42, 5);
+                color: #ffffff;
+                padding: 40px 110px;
+                margin-top: -1000px;
+                text-align: center;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 42px;
+                font-weight: 800;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border-radius: 50px;
+                min-width: 300px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+            }
+            .dropdown:hover .dropbtn {
+                background-color: #da2c00;
+                color: #ffffff;
+                border-radius: 24px;
+            }
+            .slid {
+                display: flex;
+                justify-content: left;
+                height: 2600px;
+                width: 1700px;
+                top: 300px;
+                background-size: cover;
+                <!-- background-repeat: no-repeat;
+                -->animation-name: photo;
+                animation-duration: 50s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+            }
+            @keyframes photo {
+                0% {
+                    background-image: url(image/dp1.jpg);
+                }
+                20% {
+                    background-image: url(image/dp2.jpg);
+                }
+                40% {
+                    background-image: url(image/dp3.jpg);
+                }
+                60% {
+                    background-image: url(image/dp4.jpg);
+                }
+                80% {
+                    background-image: url(image/dp5.jpg);
+                }
+                100% {
+                    background-image: url(image/dp1.jpg);
+                }
+            }
+            #puma {
+                bottom: 0px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+            }
+            #mohini {
+                bottom: 0px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #riu {
+                bottom: 0px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #sonai {
+                bottom: 0px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #ivy {
+                top: 3080px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #mou {
+                top: 3080px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #ritu {
+                top: 3080px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            #neha {
+                top: 3080px;
+                width: 1300px;
+                height: 800px;
+                left: -430px;
+                margin-top: 40px;
+            }
+            .nav-list ul {
+                display: flex;
+                justify-content: space-between;
+                padding: 10%;
+                width: 800px;
+                height: 25%;
+                font-weight: bold;
+                margin-right: -800px;
+                margin-top: 43px;
+                z-index: -2;
+            }
+            #map {
+                margin-top: 800px;
+                height: 2000px;
+                width: 1800px;
+                color: #007bff;
+                bottom: 560px;
+            }
+            .buttons {
+                display: flex;
+                justify-content: center;
+                bottom: 60%;
+            }
+            .card-container {
+                position: absolute;
+                padding-left: 4%;
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                align-items: center;
+                overflow-y: visible;
+                scroll-behavior: smooth;
+                margin-top: -110%;
+                z-index: -1;
+            }
+            .topic-list {
+                width: 100%;
+                height: 220px;
+                position: relative;
+                margin: 10px 0 20px;
+                left: 500px;
+            }
+            #search-box {
+                position: relative;
+                top: -2500px;
+                left: 500px;
+                width: 840px;
+                height: 600px;
+                transform: translateX(-50%);
+                z-index: 800;
+                background-color: transparent;
+                backdrop-filter: blur(3px);
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.601);
+                padding: 10px 10px 10px 10px;
+                border-radius: 50px;
+            }
+            #start {
+                height: 200px;
+                width: 800px;
+                left: 10px;
+                border-radius: 100px;
+                font-size: 40px;
+                display: block;
+                margin: 10px;
+                color: #da2c00;
+                font-size: 100px;
+                font-family: 'Times New Roman', Times, serif;
+                text-align: center;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.601);
+            }
+            #start:hover {
+                border-color: #d10808;
+                border-width: 2px;
+                color: orangered;
+                border-radius: 100px;
+            }
+            #end {
+                height: 200px;
+                width: 800px;
+                border-radius: 100px;
+                font-size: 40px;
+                font-family: 'Times New Roman', Times, serif;
+                display: block;
+                margin: 10px;
+                color: #da2c00;
+                text-align: center;
+                font-size: 100px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.601);
+                margin-left: 10px;
+            }
+            #click {
+                margin-left: 300px;
+                bottom: 100px;
+                margin-top: 40px;
+                border-radius: 100px;
+                font-size: 30px;
+                width: 200px;
+                height: 100px;
+                color: #ffffff;
+                background-color: rgb(232, 53, 13);
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.601);
+            }
+            footer {
+                background-color: rgb(252, 42, 5);
+                padding: 20px 800px;
+                text-align: center;
+                margin-top: 6000px;
+            }
+            footer p {
+                padding: 5px 200px;
+                justify-content: center;
+                text-align: center;
+                margin-left: -300px;
+                font-size: 40px;
+                left: 9000px;
+            }
+    </style>
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div><img class="hello" src="image/l8.png"></div>
+            <div class="nav-list">
+                <ul>
+                    <li>
+                        <div class="dropdown">
+                            <a href="about.html"><button class="dropbtn"><b>About</b></button></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="mailto:techarmy.fr@gmail.com"><button class="dropbtn"><b>Contact</b></button></a>
+
+                        </div>
+
+                    </li>
+                    <div class="dropdown">
+                        <li><a href="sign.html"><button class="bt1">Signin</button></a></li>
+                    </div>
+                    <div class="dropdown">
+                        <li><a href="login.html"><button class="bt1">Login</button></a></li>
+                    </div>
+
+
+                </ul>
+            </div>
+
+        </div>
+        </div>
+    </nav>
+
+    <div class="slid">
+    </div>
+    <!-- Search box for Point A and Point B -->
+    <div id="map"></div>
+    <div id="search-box">
+        <input id="start" type="text" placeholder="Start location...">
+        <input id="end" type="text" placeholder="Destination...">
+        <button id="click" onclick="calculateRoute()">Get Directions</button>
+    </div>
+    <div id="place-buttons">
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('hotel')">Hotels</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('restaurant')">Restaurants</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('hospital')">Hospitals</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('atm')">ATMs</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('bus_station')">Bus Stops</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('railway_station')">Railway Stations</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('subway_station')">Metro Stations</button> -->
+        <!-- <button class="place-button" onclick="searchNearbyPlaces('fuel')">Petrol Pumps</button> -->
+    </div>
+    <div class="topic-list">
+        <div class="card-container">
+            <button class="card" id="puma" onclick="searchNearbyPlaces('hotel')">
+                <img src="image/hotel1.jpg" alt=" c" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Hotels</h2>
+                </div>
+            </button>
+
+            <button class="card" id="mohini" onclick="searchNearbyPlaces('restaurant')">
+                <img src="image/r1.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Resturants</h2>
+                </div>
+            </button>
+
+            <button class="card" id="riu" onclick="searchNearbyPlaces('hospital')">
+                <img src="image/h3.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Hospitals</h2>
+                </div>
+            </button>
+
+
+            <button class="card" id="sonai" onclick="searchNearbyPlaces('atm')">
+                <img src="image/atm.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near ATMs</h2>
+                </div>                
+            </button>
+
+        </div>
+    </div>
+    <div class="topic-list">
+        <div class="card-container">
+
+            <button class="card" id="ivy" onclick="searchNearbyPlaces('bus_station')">
+                <img src="image/bus.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Bus Stops</h2>
+                </div>
+            </button>
+
+            <button class="card" id="mou" onclick="searchNearbyPlaces('railway_station')">
+                <img src="image/train.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Railway Stations</h2>
+                </div>
+            </button>
+
+            <button class="card" id="ritu" onclick="searchNearbyPlaces('subway_station')">
+                <img src="image/Metro.jpeg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Metro Stations</h2>
+                </div>
+            </button>
+
+            <button class="card" id="neha" onclick="searchNearbyPlaces('fuel')">
+                <img src="image/petrol-pump.jpg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="name">Near Petrol-Pumps</h2>
+                </div>
+            </button>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+
+            <p>&copy; 2024 FESTIVE ROUTES . All rights reserved.</p>
+            <p>Devoloped by Tech Army</p>
+        </div>
+    </footer>
+
+
+    <script>
+        let map;
+        let routingControl;
+        let markers = [];
+        let userMarker;
+
+        function initMap() {
+            map = L.map('map').setView([20.5937, 78.9629], 5);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            getUserLocation();
+        }
+
+        function getUserLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    map.setView([lat, lon], 13);
+
+                    if (userMarker) {
+                        map.removeLayer(userMarker);
+                    }
+                    userMarker = L.marker([lat, lon]).addTo(map);
+                    userMarker.bindPopup("You are here").openPopup();
+                }, function(error) {
+                    console.error("Error getting user location:", error);
+                    alert("Unable to get your location. Using default view.");
+                });
+            } else {
+                alert("Geolocation is not supported by your browser. Using default view.");
+            }
+        }
+
+        async function geocode(address) {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`);
+            const data = await response.json();
+            if (data.length > 0) {
+                return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+            }
+            return null;
+        }
+
+        async function calculateRoute() {
+            const start = await geocode(document.getElementById('start').value);
+            const end = await geocode(document.getElementById('end').value);
+
+            if (!start || !end) {
+                alert('Could not geocode one or both addresses');
+                return;
+            }
+
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+
+            routingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(start[0], start[1]),
+                    L.latLng(end[0], end[1])
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+        }
+
+        async function searchNearbyPlaces(type) {
+            clearMarkers();
+
+            const center = map.getCenter();
+            const radius = 5000; // 5km radius
+            let query;
+
+            switch (type) {
+                case 'hotel':
+                    query = `node["tourism"="hotel"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'restaurant':
+                    query = `node["amenity"="restaurant"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'hospital':
+                    query = `node["amenity"="hospital"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'atm':
+                    query = `node["amenity"="atm"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'bus_station':
+                    query = `node["highway"="bus_stop"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'railway_station':
+                    query = `node["railway"="station"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'subway_station':
+                    query = `node["railway"="station"]["station"="subway"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                case 'fuel':
+                    query = `node["amenity"="fuel"](around:${radius},${center.lat},${center.lng});`;
+                    break;
+                default:
+                    query = `node["amenity"="${type}"](around:${radius},${center.lat},${center.lng});`;
+            }
+
+            const url = `https://overpass-api.de/api/interpreter?data=[out:json];(${query});out;`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                data.elements.forEach(element => {
+                    const marker = L.marker([element.lat, element.lon]).addTo(map);
+                    marker.bindPopup(element.tags.name || type);
+                    markers.push(marker);
+                });
+
+                if (markers.length > 0) {
+                    const group = L.featureGroup(markers);
+                    map.fitBounds(group.getBounds());
+                } else {
+                    alert(`No ${type} found within 10km of your location.`);
+                }
+            } catch (error) {
+                console.error('Error searching nearby places:', error);
+            }
+        }
+
+        function clearMarkers() {
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+        }
+
+        initMap();
+    </script>
+</body>
+
+</html>

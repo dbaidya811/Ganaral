@@ -1,0 +1,98 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #d0e4f5;
+  }
+  
+  .form-container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+  
+  .general-info {
+    background: #f9fbfd;
+  }
+  
+  .contact-details {
+    background: #5a57d5;
+    color: #fff;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  input, select {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    border-color: #5a57d5;
+  }
+  
+  .contact-details input, .contact-details select {
+    border: none;
+  }
+  
+  .terms {
+    /* margin-left: 20px; */
+     margin-top: 20px;
+
+    
+  }
+  #terms{
+   margin-left: -180px;
+  }
+  
+  .terms label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .terms a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .register-btn {
+    margin-top: 20px;
+    background: #fff;
+    color: #5a57d5;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-btn:hover {
+    background: #ececff;
+  }
+  

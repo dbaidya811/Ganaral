@@ -1,0 +1,256 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+       
+        
+        body {
+            background-color: #f08c73;
+            background-image: url(image/d1.jpg);
+            background-size: cover;
+        }
+        
+        
+        .hello {
+            position: absolute;
+            height: auto;
+            top: 0px;
+            left: 2px;
+            width: 290px;
+            padding: 2px;
+        }
+        
+        .bt1 {
+            background-color: rgb(252, 42, 5);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 17px 25px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            margin-left: 55px;
+            margin-top: 25px;
+            padding: 1px 80px;
+            cursor: pointer;
+        }
+        
+        nav {
+            padding: 37px;
+            box-shadow: 5px 5px 10px rgba(148, 48, 17, 0.808);
+        }
+        
+        nav ul {
+            position: relative;
+            list-style: none;
+            padding: 0%;
+            margin: 0;
+            float: right;
+            margin-top: -25px;
+            margin-right: 80px;
+            font-weight: bold;
+        }
+        
+        nav li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        nav a:hover {
+            color: rgb(252, 42, 5);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropbtn {
+            background-color: rgb(252, 42, 5);
+            border-radius: 10px;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border-radius: 24px;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 24px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #da2c00;
+            border-radius: 10px;
+        }
+        
+        .dropdown:hover .bt1 {
+            background-color: #da2c00;
+            border-radius: 10px;
+        }
+        
+        .login {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            min-height: 50vh;
+            position: absolute;
+            top: 55%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            place-items: right;
+        }
+        
+        .login {
+            width: 400px;
+            height: 450px;
+            background: transparent;
+            backdrop-filter: blur(3px);
+            color: #fff;
+            border-radius: 10px;
+            padding: 7px 15px;
+            padding-top: 30px;
+            box-shadow: 5px 5px 10px rgba(148, 48, 17, 0.808);
+        }
+        
+        .login h1 {
+            font-size: 36px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        
+        .login .input-box {
+            position: relative;
+            width: 130%;
+            height: 50px;
+            left: -42px;
+            margin: 30px 0px;
+        }
+        
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgb(231, 231, 231);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            padding: 20px 45px 20px 20px;
+        }
+        
+        .input-box input::placeholder {
+            color: #fff;
+        }
+        
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 30%;
+            transform: translate(-50%);
+            font-size: 20px;
+        }
+        
+        .login.remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: -15px 0px 15px;
+        }
+        
+        .remember-forgot label input {
+            accent-color: #fff;
+            margin: 3px;
+        }
+        
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+        
+        .login .btn {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .login .register-link {
+            font-size: 14.5px;
+            text-align: center;
+            margin: 20px 0px 15px;
+        }
+        
+        .register-link p1 a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .register-link p1 a :hover {
+            text-decoration: underline;
+        }
+        
+        .paragraph {
+            text-align: center;
+            position: fixed;
+            height: auto;
+            top: 260px;
+            left: 60%;
+            font-size: 36px;
+            color: #ffffff;
+        }

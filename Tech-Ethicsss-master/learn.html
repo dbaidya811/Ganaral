@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn More</title>
+  <link rel="stylesheet" href="learn.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-section general-info">
+      <h2>General Information</h2>
+      <form>
+        <label for="title">Title</label>
+        <select id="title">
+          <option value="" disabled selected>Select</option>
+          <option value="mr">Mr</option>
+          <option value="ms">Ms</option>
+        </select>
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="First Name">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Last Name">
+
+        <label for="position">Position</label>
+        <select id="position">
+          <option value="" disabled selected>Select</option>
+          <option value="manager">Manager</option>
+          <option value="developer">Developer</option>
+        </select>
+
+        <label for="company">Company</label>
+        <input type="text" id="company" placeholder="Company">
+
+        <label for="business-arena">Business Arena</label>
+        <input type="text" id="business-arena" placeholder="Business Arena">
+
+        <label for="employees">Employees</label>
+        <select id="employees">
+          <option value="" disabled selected>Select</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+        </select>
+      </form>
+    </div>
+    <div class="form-section contact-details">
+      <h2>Contact Details</h2>
+      <form>
+        <label for="street">Street + Nr</label>
+        <input type="text" id="street" placeholder="Street + Nr">
+
+        <label for="additional-info">Additional Information</label>
+        <input type="text" id="additional-info" placeholder="Additional Information">
+
+        <label for="zip-code">Zip Code</label>
+        <input type="text" id="zip-code" placeholder="Zip Code">
+
+        <label for="place">Place</label>
+        <select id="place">
+          <option value="" disabled selected>Select</option>
+          <option value="city1">City 1</option>
+          <option value="city2">City 2</option>
+        </select>
+
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="" disabled selected>Select</option>
+          <option value="country1">Country 1</option>
+          <option value="country2">Country 2</option>
+        </select>
+
+        <label for="code">Code +</label>
+        <input type="text" id="code" placeholder="Code">
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="Phone Number">
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="Email">
+
+        <div class="terms">
+          <!-- <input type="checkbox" id="terms"></div> -->
+		  <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> I do accept the <a href="#">Terms and Conditions</a> of your site.</label>
+          <!-- <label for="terms">I do accept the <a href="#">Terms and Conditions</a> of your site.</label> -->
+        </div>
+
+        <button type="submit" class="register-btn">Register Badge</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
